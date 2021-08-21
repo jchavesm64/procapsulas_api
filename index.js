@@ -32,7 +32,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 server.applyMiddleware({ app });
 
-mongoose.connect('mongodb+srv://main_user_db:1D2J3Y4V@Jklm8247@procapsulas.otfvv.mongodb.net/develop?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(
+mongoose.connect('mongodb+srv://main_user_db:1D2J3Y4V@Jklm8247@procapsulas.otfvv.mongodb.net/main?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(
     () => {
         console.log('Conectado a Mongo!!!')
         app.listen(
