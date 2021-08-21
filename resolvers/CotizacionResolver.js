@@ -5,7 +5,7 @@ export default{
     Query:{
         obtenerCotizaciones: async (_, {}) => {
             try{
-                const result = await Cotizacion.find({status: 'ACTIVO'}).populate('formula').populate('tipoProducto').populate('cliente').populate('elementos').populate('capsula');
+                const result = await Cotizacion.find({status: 'ACTIVO'}).populate('formula').populate('presentacion').populate('cliente').populate('elementos').populate('elementos_c');
                 return result;
             }catch(error){
                 return error
@@ -13,7 +13,7 @@ export default{
         },
         obtenerCotizacion: async (_, {id}) => {
             try{
-                const result = await Cotizacion.findById(id).populate('formula').populate('tipoProducto').populate('cliente').populate('elementos').populate('capsula');
+                const result = await Cotizacion.findById(id).populate('formula').populate('presentacion').populate('cliente').populate('elementos').populate('elementos_c');
                 return result;
             }catch(error){
                 return error

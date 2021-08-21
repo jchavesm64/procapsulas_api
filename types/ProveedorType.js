@@ -7,9 +7,13 @@ const proveedor_type = gql`
         cedula: String
         pais: String
         ciudad: String
+        city: String
+        calle: String
+        cp: String
         direccion: String
         telefonos: [Telefono]
         correos: [Email] 
+        redes: [RedSocial]
         provedurias: [TipoProveduria]
         estado: Estado
     }
@@ -24,9 +28,13 @@ const proveedor_type = gql`
         cedula: String
         pais: String
         ciudad: String
+        city: String
+        calle: String
+        cp: String
         direccion: String
         telefonos: [TelefonoInput]
         correos: [EmailInput] 
+        redes: [RedSocialInput]
         provedurias: [ID]
         estado: Estado
     }

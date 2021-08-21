@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
 const FormulaSchema = new mongoose.Schema({
-    tipo:{
-        type: String,
-        require: true,
-        trim: true
-    },
     nombre:{
         type: String,
         require: true,
@@ -22,6 +17,10 @@ const FormulaSchema = new mongoose.Schema({
     formulaBase:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'FormulasBase'
+    },
+    cliente:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'clientes'
     },
     estado:{
         type: String,

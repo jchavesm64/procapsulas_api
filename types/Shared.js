@@ -6,14 +6,13 @@ const shared = gql`
         INACTIVO
     }
 
-    enum Moneda{
-        US_DOLLAR
-        COLON
-        YEN
-    }
-
     type Email{
         email: String
+    }
+
+    type RedSocial{
+        red: String
+        enlace: String
     }
 
     type Telefono{
@@ -22,6 +21,11 @@ const shared = gql`
 
     input EmailInput{
         email: String
+    }
+
+    input RedSocialInput{
+        red: String
+        enlace: String
     }
 
     input TelefonoInput{

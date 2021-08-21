@@ -17,46 +17,50 @@ const cotizacion_type = gql`
     type Cotizacion{
         id: ID
         formula: formula
-        tipoProducto: TipoProducto,
+        presentacion: TipoProducto,
         cliente: Cliente
-        pesoCapsula: String
-        cantidad: Number
-        costoCapsula: Number
-        envases: Number
-        costoEnvase: Number
-        etiqueta: Number
-        costoEtiqueta: Number
-        venta: Number
+        peso: String
         elementos: [MateriaPrima]
         porcentajes: [Number]
-        precio_kilo: [Number]
-        capsula: [MateriaPrima]
-        precios_capsula: [Number]
-        cantidad_capsula: [Number]
-        agua_purificada: Number
+        precios: [Number]
+        cant_cap: Number
+        cost_cap: Number
+        cant_env: Number
+        cost_env: Number
+        cant_eti: Number
+        cost_eti: Number
+        venta: Number
+        dosis: Number
+        serving: Number
+        agua: Number
+        elementos_c: [MateriaPrima]
+        cantidad_c: [Number]
+        precios_c: [Number]
         estado: EstadoCotizacion
         status: Estado
     }
 
     input cotizacion{
         formula: ID
-        tipoProducto: ID
+        presentacion: ID,
         cliente: ID
-        pesoCapsula: String
-        cantidad: Number
-        costoCapsula: Number
-        envases: Number
-        costoEnvase: Number
-        etiqueta: Number
-        costoEtiqueta: Number
-        venta: Number
+        peso: String
         elementos: [ID]
         porcentajes: [Number]
-        precio_kilo: [Number]
-        capsula: [ID]
-        precios_capsula: [Number]
-        cantidad_capsula: [Number]
-        agua_purificada: Number
+        precios: [Number]
+        cant_cap: Number
+        cost_cap: Number
+        cant_env: Number
+        cost_env: Number
+        cant_eti: Number
+        cost_eti: Number
+        venta: Number
+        dosis: Number
+        serving: Number
+        agua: Number
+        elementos_c: [ID]
+        cantidad_c: [Number]
+        precios_c: [Number]
         estado: EstadoCotizacion
         status: Estado
     }    

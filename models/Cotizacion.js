@@ -5,7 +5,7 @@ const CotizacionSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'formulas'
     },
-    tipoProducto:{
+    presentacion:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'tipoProductos'
     },
@@ -13,43 +13,8 @@ const CotizacionSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'clientes'
     },
-    pesoCapsula: {
+    peso: {
         type: String,
-        require: true,
-        trim: true
-    },
-    cantidad: {
-        type: Number,
-        require: true,
-        trim: true
-    },
-    costoCapsula: {
-        type: Number,
-        require: true,
-        trim: true
-    },
-    envases: {
-        type: Number,
-        require: true,
-        trim: true
-    },
-    costoEnvase: {
-        type: Number,
-        require: true,
-        trim: true
-    },
-    etiqueta: {
-        type: Number,
-        require: true,
-        trim: true
-    },
-    costoEtiqueta: {
-        type: Number,
-        require: true,
-        trim: true
-    },
-    venta: {
-        type: Number,
         require: true,
         trim: true
     },
@@ -61,21 +26,50 @@ const CotizacionSchema = mongoose.Schema({
         type: Array,
         require: true
     },
-    precio_kilo: {
+    precios: {
         type: Array,
         require: true
     },
-    capsula: [{
+    cant_cap: {
+        type: Number
+    },
+    cost_cap: {
+        type: Number
+    },
+    cant_env: {
+        type: Number
+    },
+    cost_env: {
+        type: Number
+    },
+    cant_eti: {
+        type: Number
+    },
+    cost_eti: {
+        type: Number
+    },
+    venta: {
+        type: Number,
+        require: true,
+        trim: true
+    },
+    dosis: {
+        type: Number,
+    },
+    serving: {
+        type: Number,
+    },
+    agua: {
+        type: Number
+    },
+    elementos_c: [{
         type: [mongoose.Schema.Types.ObjectId],
         ref: 'MateriasPrimas'
     }],
-    cantidad_capsula:{
+    cantidad_c:{
         type: Array
     },
-    agua_purificada:{
-        type: Number,
-    },
-    precios_capsula: {
+    precios_c:{
         type: Array
     },
     estado:{

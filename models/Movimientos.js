@@ -43,6 +43,7 @@ const MovimientosSchema = new mongose.Schema({
     },
     moneda:{
         type: String,
+        enum: ['US Dollar', 'Colón', 'Yen'],
         require: true,
         trim: true
     },

@@ -4,7 +4,7 @@ export default {
     Query: {
         obtenerFormulas: async (_, { }) => {
             try {
-                const formulas = await Formulas.find({ estado: 'ACTIVO' }).populate({path: 'formulaBase', populate: [{path: 'elementos'}]}).populate({ path: 'elementos', populate: [{ path: 'proveedor' }] })
+                const formulas = await Formulas.find({ estado: 'ACTIVO' }).populate({path: 'formulaBase', populate: [{path: 'elementos'}]}).populate({ path: 'elementos', populate: [{ path: 'proveedor' }] }).populate('cliente')
                 return formulas
             } catch (error) {
                 return error
@@ -13,7 +13,7 @@ export default {
         obtenerFormulasConMovimiento: async (_, { }) => {
             try {
                 var retorno = []
-                const formulas = await Formulas.find({ estado: 'ACTIVO' }).populate({path: 'formulaBase', populate: [{path: 'elementos'}]}).populate({ path: 'elementos', populate: [{ path: 'proveedor' }] })
+                const formulas = await Formulas.find({ estado: 'ACTIVO' }).populate({path: 'formulaBase', populate: [{path: 'elementos'}]}).populate({ path: 'elementos', populate: [{ path: 'proveedor' }] }).populate('cliente')
                 formulas.map(item => {
                     var materiasmovimientos = []
                     item.elementos.map(ele => {
@@ -39,7 +39,7 @@ export default {
         },
         obtenerFormula: async (_, { id }) => {
             try {
-                const formula = await Formulas.findById(id).populate({path: 'formulaBase', populate: [{path: 'elementos'}]}).populate({ path: 'elementos', populate: [{ path: 'proveedor' }] });
+                const formula = await Formulas.findById(id).populate({path: 'formulaBase', populate: [{path: 'elementos'}]}).populate({ path: 'elementos', populate: [{ path: 'proveedor' }] }).populate('cliente');
                 return formula
             } catch (error) {
                 return error
