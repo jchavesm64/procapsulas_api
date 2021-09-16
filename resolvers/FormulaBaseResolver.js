@@ -5,7 +5,15 @@ export default {
         obtenerFormulasBase: async (_, { }) => {
             try {
                 const formula = await FormulaBase.find({ estado: "ACTIVO" }).populate('elementos');
-                return formula;
+                return formula.sort(function(a, b){
+                    if(a.nombre > b.nombre){
+                        return 1
+                    }
+                    if(a.nombre < b.nombre){
+                        return -1
+                    }
+                    return 0;
+                });
             } catch (error) {
                 return error;
             }

@@ -5,7 +5,7 @@ export default {
         obtenerPermisos: async (_, { }) => {
             try {
                 const permisos = Permiso.find();
-                return permisos;
+                return permisos
             } catch (error) {
                 return error;
             }

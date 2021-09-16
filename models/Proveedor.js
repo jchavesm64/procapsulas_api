@@ -23,17 +23,14 @@ const ProveedorSchema = new mongoose.Schema({
     },
     city:{
         type:String,
-        require: true,
         trim: true
     },
     calle:{
         type:String,
-        require: true,
         trim: true
     },
     cp:{
         type:String,
-        require: true,
         trim: true
     },
     direccion:{
@@ -43,12 +40,10 @@ const ProveedorSchema = new mongoose.Schema({
     },
     telefonos:{
         type: Array,
-        require: true,
         trim: true
     },
     correos:{
         type: Array,
-        require: true,
         trim: true
     },
     redes:{

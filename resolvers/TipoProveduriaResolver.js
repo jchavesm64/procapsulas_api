@@ -5,7 +5,15 @@ export default {
         obtenerTipoProveduria: async (_, { }) => {
             try {
                 const tipos = await TipoProveduria.find({ estado: "ACTIVO" });
-                return tipos;
+                return tipos.sort(function(a, b){
+                    if(a.tipo > b.tipo){
+                        return 1
+                    }
+                    if(a.tipo < b.tipo){
+                        return -1
+                    }
+                    return 0;
+                });
             } catch (error) {
                 return error;
             }

@@ -5,7 +5,15 @@ export default {
         obtenerFormulas: async (_, { }) => {
             try {
                 const formulas = await Formulas.find({ estado: 'ACTIVO' }).populate({path: 'formulaBase', populate: [{path: 'elementos'}]}).populate({ path: 'elementos', populate: [{ path: 'proveedor' }] }).populate('cliente')
-                return formulas
+                return formulas.sort(function(a, b){
+                    if(a.nombre > b.nombre){
+                        return 1
+                    }
+                    if(a.nombre < b.nombre){
+                        return -1
+                    }
+                    return 0;
+                });
             } catch (error) {
                 return error
             }

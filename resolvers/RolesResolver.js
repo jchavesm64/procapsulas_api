@@ -5,7 +5,15 @@ export default {
         obtenerRoles: async (_, { }) => {
             try {
                 const roles = await Rol.find({estado: 'ACTIVO'}).populate('permisos');
-                return roles;
+                return roles.sort(function(a, b){
+                    if(a.tipo > b.tipo){
+                        return 1
+                    }
+                    if(a.tipo < b.tipo){
+                        return -1
+                    }
+                    return 0;
+                });
             } catch (error) {
                 return error;
             }

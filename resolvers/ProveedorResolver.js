@@ -5,7 +5,15 @@ export default {
         obtenerProveedores: async (_, { }) => {
             try {
                 const proveedores = await Proveedor.find({ estado: "ACTIVO" }).populate('provedurias');
-                return proveedores;
+                return proveedores.sort(function(a, b){
+                    if(a.empresa > b.empresa){
+                        return 1
+                    }
+                    if(a.empresa < b.empresa){
+                        return -1
+                    }
+                    return 0;
+                });;
             } catch (error) {
                 return error;
             }

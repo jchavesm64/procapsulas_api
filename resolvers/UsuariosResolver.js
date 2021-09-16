@@ -75,7 +75,15 @@ export default {
         obtenerUsuariosActivos: async (_, { }) => {
             try {
                 const usuarios = await Usuario.find({ estado: "ACTIVO" }).populate({ path: 'roles', populate: [{ path: 'permisos' }] });
-                return usuarios;
+                return usuarios.sort(function(a, b){
+                    if(a.nombre > b.nombre){
+                        return 1
+                    }
+                    if(a.nombre < b.nombre){
+                        return -1
+                    }
+                    return 0;
+                });
             } catch (error) {
                 return error;
             }

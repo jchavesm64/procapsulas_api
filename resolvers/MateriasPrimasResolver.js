@@ -6,7 +6,15 @@ export default {
         obtenerMateriasPrimas: async (_, { }) => {
             try {
                 const materias = await MateriasPrimas.find({ estado: 'ACTIVO' }).populate('proveedor');
-                return materias
+                return materias.sort(function(a, b){
+                    if(a.nombre > b.nombre){
+                        return 1
+                    }
+                    if(a.nombre < b.nombre){
+                        return -1
+                    }
+                    return 0;
+                });
             } catch (error) {
                 return error;
             }
@@ -22,7 +30,15 @@ export default {
                         movimientos: result
                     })
                 })
-                return materiasmovimientos
+                return materiasmovimientos.sort(function(a, b){
+                    if(a.materia_prima.nombre > b.materia_prima.nombre){
+                        return 1
+                    }
+                    if(a.materia_prima.nombre < b.materia_prima.nombre){
+                        return -1
+                    }
+                    return 0;
+                });
             } catch (error) {
                 return error;
             }
