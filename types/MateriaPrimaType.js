@@ -12,6 +12,7 @@ const materia_prima_type = gql`
     type MateriaPrima{
         id: ID
         nombre: String
+        proveedor: Proveedor
         pais: String
         unidad: Unidad
         existencias: Number
@@ -26,6 +27,7 @@ const materia_prima_type = gql`
 
     input MateriaPrimaInput{
         nombre: String
+        proveedor: ID
         pais: String
         unidad: Unidad
         existencias: Number

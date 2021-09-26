@@ -6,6 +6,10 @@ const MateriasPrimasSchema = new mongose.Schema({
         require: true,
         trim: true,
     },
+    proveedor:{
+        type: mongose.Schema.Types.ObjectId,
+        ref: 'proveedores'
+    },
     pais:{
         type: String,
         require: true,
