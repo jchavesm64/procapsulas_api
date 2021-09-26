@@ -5,7 +5,7 @@ export default {
     Query: {
         obtenerMateriasPrimas: async (_, { }) => {
             try {
-                const materias = await MateriasPrimas.find({ estado: 'ACTIVO' }).populate('proveedor');
+                const materias = await MateriasPrimas.find({ estado: 'ACTIVO' });
                 return materias.sort(function(a, b){
                     if(a.nombre > b.nombre){
                         return 1
@@ -22,9 +22,9 @@ export default {
         obtenerMateriasPrimasConMovimientos: async (_, { }) => {
             try {
                 var materiasmovimientos = []
-                const materias = await MateriasPrimas.find({ estado: 'ACTIVO' }).populate('proveedor');
+                const materias = await MateriasPrimas.find({ estado: 'ACTIVO' });
                 materias.map(item => {
-                    const result = Movimientos.find({materia_prima: item.id}).populate('usuario')
+                    const result = Movimientos.find({materia_prima: item.id}).populate('usuario').populate('proveedor')
                     materiasmovimientos.push({
                         materia_prima: item,
                         movimientos: result
@@ -45,7 +45,7 @@ export default {
         },
         obtenerMateriaPrima: async (_, { id }) => {
             try {
-                const materia = await MateriasPrimas.findById(id).populate('proveedor');
+                const materia = await MateriasPrimas.findById(id);
                 return materia;
             } catch (error) {
 

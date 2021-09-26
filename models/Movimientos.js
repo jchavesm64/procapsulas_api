@@ -11,6 +11,10 @@ const MovimientosSchema = new mongose.Schema({
         require: true,
         trim: true
     },
+    proveedor:{
+        type: mongose.Schema.Types.ObjectId,
+        ref: 'proveedores'
+    },
     codigo:{
         type: String,
         require: true,

@@ -10,6 +10,7 @@ import Movimientos from './Movimientos';
 import Formulas from './Formula'
 import Cotizacion from './Cotizacion';
 import FormulaBase from './FormulaBase';
+import ParametrosGenerales from './ParametrosGenerales';
 
 export {
     Rol,
@@ -23,5 +24,6 @@ export {
     Movimientos,
     Formulas,
     Cotizacion,
-    FormulaBase
+    FormulaBase,
+    ParametrosGenerales
 }
