@@ -18,7 +18,7 @@ const formula_type = gql`
         nombre: String
         elementos: [MateriaPrimaMovimientos]
         porcentajes: [Number]
-        formulaBase: formula_base
+        formulaBase: formula_base_2
     }
 
     type Query{

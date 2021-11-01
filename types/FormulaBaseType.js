@@ -9,6 +9,13 @@ const formula_base_type = gql`
         estado: Estado
     }
 
+    type formula_base_2{
+        id: ID
+        nombre: String
+        elementos: [MateriaPrimaMovimientos]
+        estado: Estado
+    }
+
     type Query{
         obtenerFormulasBase: [formula_base]
         obtenerFormulaBase(id:ID): formula_base

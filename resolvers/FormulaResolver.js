@@ -25,17 +25,33 @@ export default {
                 formulas.map(item => {
                     var materiasmovimientos = []
                     item.elementos.map(ele => {
-                        const result = Movimientos.find({ materia_prima: ele.id }).populate('usuario')
+                        const result = Movimientos.find({ materia_prima: ele.id, tipo: 'ENTRADA' }).sort({fecha: -1})
                         materiasmovimientos.push({
                             materia_prima: ele,
                             movimientos: result
                         })
                     })
+                    var basemovimientos = []
+                    var formula_base = null
+                    if(item.formulaBase){
+                        item.formulaBase.elementos.map(ele => {
+                            const result = Movimientos.find({ materia_prima: ele.id, tipo: 'ENTRADA' }).sort({fecha: -1})
+                            basemovimientos.push({
+                                materia_prima: ele,
+                                movimientos: result
+                            })
+                        })
+                        formula_base = {
+                            id: item.formulaBase.id,
+                            nombre: item.formulaBase.nombre,
+                            elementos: basemovimientos
+                        }
+                    }
                     retorno.push({
                         id: item.id,
                         nombre: item.nombre,
                         tipo: item.tipo,
-                        formulaBase: item.formulaBase,
+                        formulaBase: formula_base,
                         elementos: materiasmovimientos,
                         porcentajes: item.porcentajes
                     })
